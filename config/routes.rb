@@ -1,6 +1,12 @@
 Shop::Application.routes.draw do
   resources :products
 
+  resources :store do
+    post 'add_to_cart', :on => :member
+    delete 'empty_cart', :on => :collection
+  end
+
+ root :to => "store#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

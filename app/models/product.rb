@@ -5,7 +5,11 @@ class Product < ActiveRecord::Base
   validates_format_of :image_url,
                       :with => %r{\.(gif|jpg|jpeg|png)$}i,
                       :message => 'Must be a gif, jpg, jpeg or png image'
-  
+
+  def self.find_all_products_for_sale
+    find(:all, :order => 'title')
+  end
+
   protected
   def price_must_be_positive
     errors.add(:price, 'Should be positive') if price.blank? || price <= 0

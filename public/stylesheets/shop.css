@@ -69,6 +69,7 @@ h1 {
 /* Styles for main page */
 
 #banner {
+	height: 117px;
   background: #9c9;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -79,6 +80,8 @@ h1 {
 }
 
 #banner img {
+	width: 400px;
+	height: 117px;
   float: left;
 }
 

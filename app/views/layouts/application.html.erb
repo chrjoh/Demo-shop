@@ -9,10 +9,21 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
-<body>
-<p style_"color: green"><%= flash[:notice]%></p>
-
-<%= yield %>
-
+<body id="store">
+  <div id="banner">
+    <%= image_tag('/images/ca-logo-img.png')%>
+    <%= @page_title || "Online store"%>
+  </div>
+  <div id="columns">
+    <div id="side">
+      <a href="http://dn.se">DN</a><br />
+    </div>
+  <div id="main">
+    <% if flash[:notice] %>
+      <div id="notice"><%= flash[:notice]%></div>
+    <% end %>
+  
+    <%= yield %>
+  </div>
 </body>
 </html>
