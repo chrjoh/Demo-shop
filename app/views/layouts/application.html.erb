@@ -16,8 +16,18 @@
   </div>
   <div id="columns">
     <div id="side">
-      <% hidden_div_if(@cart.nil? || @cart.items.empty?, :id => "cart") do%>
+      <% hidden_div_if(@cart.nil? || @cart.items.empty?, :id => "cart") do %>
         <%= render(:partial => 'store/cart', :object => @cart)%>
+      <% end %>
+      <% if session[:user_id] %>
+        <br />
+        <div class="admin">
+          <%= link_to("Orders", orders_path)%><br />
+          <%= link_to("Products", products_path)%><br />
+          <%= link_to("Users", users_path)%><br />
+          <br />
+          <%= link_to('Logout',logout_session_index_path)%>
+        </div>
       <% end %>
     </div>
   <div id="main">

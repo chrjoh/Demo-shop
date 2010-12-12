@@ -1,0 +1,16 @@
+<div class="depot-form">
+  <% form_tag session_index_path, :method => :post do %>
+    <fieldset>
+      <legend>Please login</legend>
+      <div>
+        <label for="name">Name:</label>
+        <%= text_field_tag :name, params[:name] %>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <%= password_field_tag :password, params[:password] %>
+      </div>
+      <%= submit_tag "Login", :class => "submit"%>
+    </fieldset>
+  <% end %>
+</div>

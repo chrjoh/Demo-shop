@@ -1,4 +1,10 @@
 Shop::Application.routes.draw do
+
+  resources :session do
+    get 'logout', :on => :collection
+  end
+  resources :users
+
   resources :line_items
 
   resources :orders
