@@ -31,6 +31,7 @@ class OrdersController < ApplicationController
       redirect_to_index("Your cart is empty")
     else
       @order = Order.new
+      @hide_checkout_button = true
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @order }
