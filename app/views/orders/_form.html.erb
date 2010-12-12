@@ -1,33 +1,41 @@
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<div class="depot-form">
 
-      <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= form_for @order, :as => :order, :url => orders_path,  :html => {:mthod => :post} do |f| %>
+    <% if @order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+        <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>Please enter your details</legend>
+
+      <div>
+        <%= f.label :name, 'Name:' %><br />
+        <%= f.text_field :name, :size => 40 %>
+      </div>
+      <div>
+        <%= f.label :address, 'Address:' %><br />
+        <%= f.text_area :address, :rows => 3, :cols => 40 %>
+      </div>
+      <div>
+        <%= f.label :email, 'E-mail:' %><br />
+        <%= f.text_field :email, :size => 40 %>
+      </div>
+      <div>
+        <%= f.label :pay_type %><br />
+        <%= f.select :pay_type,
+                      Order::PAYMENT_TYPES,
+                      :prompt => "Select a payment method"
+        %>
+      </div>
+      <%= submit_tag "Place order", :class => "submit"%>
+    </fieldset>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_area :address %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :pay_type %><br />
-    <%= f.text_field :pay_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

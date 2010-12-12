@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+  before_filter :find_cart
+  
   # GET /orders
   # GET /orders.xml
   def index
@@ -24,11 +27,15 @@ class OrdersController < ApplicationController
   # GET /orders/new
   # GET /orders/new.xml
   def new
-    @order = Order.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @order }
+    if @cart.items.empty?
+      redirect_to_index("Your cart is empty")
+    else
+      @order = Order.new
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @order }
+      end
+      
     end
   end
 
@@ -41,10 +48,11 @@ class OrdersController < ApplicationController
   # POST /orders.xml
   def create
     @order = Order.new(params[:order])
-
+    @order.add_line_items_from_cart(@cart)
     respond_to do |format|
       if @order.save
-        format.html { redirect_to(@order, :notice => 'Order was successfully created.') }
+        session[:cart] = nil
+        format.html { redirect_to_index("Thank you for your order") }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
         format.html { render :action => "new" }
@@ -80,4 +88,17 @@ class OrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private  
+  def find_cart
+    session[:cart] ||= Cart.new
+    @cart = session[:cart]
+  end
+  
+
+  def redirect_to_index(msg = nil)
+    flash[:notice] = msg
+    redirect_to store_index_path
+  end
+  
 end

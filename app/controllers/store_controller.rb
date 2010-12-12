@@ -29,6 +29,15 @@ class StoreController < ApplicationController
     end
   end
 
+  def checkout
+    @cart = find_cart
+    if @cart.items.empty?
+      redirect_to_index("Your cart is empty")
+    else
+      @order = Order.new
+    end
+  end
+
   private
   def redirect_to_index(msg = nil)
     flash[:notice] = msg
