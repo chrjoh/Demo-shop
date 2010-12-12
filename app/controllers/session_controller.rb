@@ -2,7 +2,6 @@ class SessionController < ApplicationController
 
   # show login from
   def new
-    puts "inside new"
   end
 
   # perform the login
