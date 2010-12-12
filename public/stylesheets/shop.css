@@ -80,6 +80,7 @@ h1 {
 }
 
 #banner img {
+  border: 0;
 	width: 400px;
 	height: 117px;
   float: left;
@@ -90,7 +91,7 @@ h1 {
 }
 
 #main {
-  margin-left: 13em;
+  margin-left: 21em;
   padding-top: 4ex;
   padding-left: 2em;
   background: white;
@@ -101,7 +102,7 @@ h1 {
   padding-top: 1em;
   padding-left: 1em;
   padding-bottom: 1em;
-  width: 12em;
+  width: 20em;
   background: #141;
 }
 

@@ -11,19 +11,21 @@
 </head>
 <body id="store">
   <div id="banner">
-    <%= image_tag('/images/ca-logo-img.png')%>
+    <%= link_to image_tag('/images/ca-logo-img.png'), store_index_path %>
     <%= @page_title || "Online store"%>
   </div>
   <div id="columns">
     <div id="side">
-      <a href="http://dn.se">DN</a><br />
+      <% hidden_div_if(@cart.nil? || @cart.items.empty?, :id => "cart") do%>
+        <%= render(:partial => 'cart', :object => @cart)%>
+      <% end %>
     </div>
   <div id="main">
     <% if flash[:notice] %>
       <div id="notice"><%= flash[:notice]%></div>
     <% end %>
   
-    <%= yield %>
+    <%= yield :layout %>
   </div>
 </body>
 </html>

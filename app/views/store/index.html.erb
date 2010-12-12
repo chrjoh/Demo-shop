@@ -7,7 +7,7 @@
     <%= product.description %>
     <div class="price-line">
       <span class="price"><%= number_to_currency(product.price) %></span>
-      <%= button_to ('Add to chart', add_to_cart_store_path(:id =>product)) %>
+      <%= button_to('Add to chart', add_to_cart_store_path(:id =>product), :method => 'post', :remote => true) %>
     </div>
   </div>
 <% end %>
