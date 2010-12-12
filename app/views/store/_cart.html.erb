@@ -1,12 +1,13 @@
-<div id="cart">
-  <div class="cart-title">Your cart</div>
-  <table>
-    <%= render(:partial => 'cart_item', :collection => cart.items) %>
-  
-    <tr class="total-line">
-      <td colspan="2">Total</td>
-      <td class="total-cell"><%= number_to_currency(cart.total_price)%>
-    </tr>
-  </table>
-  <%= button_to('Empty cart',empty_cart_store_index_path, :method => 'delete', :remote => true)%>
-</div>
+<% unless cart.nil?%>
+  <div id="cart">
+    <div class="cart-title">Your cart</div>
+    <table>
+      <%= render(:partial => 'cart_item', :collection => cart.items) %>
+      <tr class="total-line">
+        <td colspan="2">Total</td>
+        <td class="total-cell"><%= number_to_currency(cart.total_price)%>
+      </tr>
+    </table>
+    <%= button_to('Empty cart',empty_cart_store_index_path, :method => 'delete', :remote => true)%>
+  </div>
+<%end%>
