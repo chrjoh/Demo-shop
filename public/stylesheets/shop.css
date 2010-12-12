@@ -66,11 +66,14 @@ h1 {
 }
 
 /* START:mainlayout */
+body {
+  background: #F5D0A9;
+}
 /* Styles for main page */
 
 #banner {
 	height: 117px;
-  background: #9c9;
+  background: #F5D0A9;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid;
@@ -87,14 +90,14 @@ h1 {
 }
 
 #columns {
-  background: #141;
+  background: #FE9A2E;
 }
 
 #main {
   margin-left: 21em;
   padding-top: 4ex;
   padding-left: 2em;
-  background: white;
+  background: #F5D0A9;
 }
 
 #side {
@@ -103,11 +106,11 @@ h1 {
   padding-left: 1em;
   padding-bottom: 1em;
   width: 20em;
-  background: #141;
+  background: #FE9A2E;
 }
 
 #side a {
-  color: #bfb;
+  color: #FE9A2E;
   font-size: small;
 }
 /* END:mainlayout */
