@@ -142,6 +142,11 @@ h1 {
  margin-bottom: 0.8em; 
 }
 
+#store .entry .text {
+ margin-top: 0.5em; 
+ margin-bottom: 0.8em; 
+}
+
 #store .entry .price-line {
  clear: both;
 }
