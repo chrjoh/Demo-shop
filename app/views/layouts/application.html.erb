@@ -26,15 +26,17 @@
           <%= link_to("Products", products_path)%><br />
           <%= link_to("Users", users_path)%><br />
           <br />
-          <%= link_to('Logout',logout_session_index_path)%>
+          <%= button_to('Logout',logout_session_index_path,:method => 'get')%>
         </div>
+        <% else%>
+          <%= button_to('Login',new_session_path, :method => 'get')%>
       <% end %>
     </div>
   <div id="main">
     <% if flash[:notice] %>
       <div id="notice"><%= flash[:notice]%></div>
     <% end %>
-  
+
     <%= yield :layout %>
   </div>
 </body>

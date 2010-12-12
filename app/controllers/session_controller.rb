@@ -20,6 +20,7 @@ class SessionController < ApplicationController
   # logout the user
   def logout
     session[:user_id] = nil
+    redirect_to store_index_path
   end
 
   def show
