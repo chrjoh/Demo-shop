@@ -89,6 +89,13 @@ body {
   float: left;
 }
 
+#banner .login a {
+  color: #191007;
+  font-size: small;
+  float: right;
+  background-color: #F5D0A9;
+}
+
 #columns {
   background: #FE9A2E;
 }
@@ -111,6 +118,7 @@ body {
 
 #side a {
   color: #191007;
+  background-color: #FE9A2E;
   font-size: small;
 }
 /* END:mainlayout */

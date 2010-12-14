@@ -14,6 +14,6 @@ class Product < ActiveRecord::Base
 
   protected
   def price_must_be_positive
-    errors.add(:price, 'Should be positive') if price.blank? || price <= 0
+    errors.add(:price, "Should be positive, #{price}") if price.blank? || price <= 0.0
   end
 end

@@ -1,10 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- START:jit -->
 <html>
 <head>
   <title>Online Store</title>
-<!-- START:stylesheet -->
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
@@ -13,10 +11,15 @@
   <div id="banner">
     <%= link_to image_tag('/images/ca-logo-img.png'), store_index_path %>
     <%= @page_title || "Online store"%>
+    <% if session[:user_id].blank? %>
+      <div class="login">
+        <%= link_to('Admin',new_session_path)%>
+      </div>
+    <% end %>
   </div>
   <div id="columns">
     <div id="side">
-      <% hidden_div_if(@cart.nil? || @cart.items.empty?, :id => "cart") do %>
+      <%= hidden_div_if(@cart.nil? || @cart.items.empty?, :id => "cart") do %>
         <%= render(:partial => 'store/cart', :object => @cart)%>
       <% end %>
       <% if session[:user_id] %>
@@ -28,8 +31,6 @@
           <br />
           <%= button_to('Logout',logout_session_index_path,:method => 'get')%>
         </div>
-        <% else%>
-          <%= button_to('Login',new_session_path, :method => 'get')%>
       <% end %>
     </div>
   <div id="main">
