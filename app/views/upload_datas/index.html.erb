@@ -1,4 +1,4 @@
-<div id="product-list">
+<div id="image-list">
   <h1>Listing images</h1>
 
   <table>
@@ -6,6 +6,11 @@
       <tr class="<%= cycle('list-line-odd','list-line-even')%>">
         <td>
           <%= image_tag upload_data.image.url(:thumb)  %>
+        </td>
+        <td class="list-description">
+          <dl>
+            <dt><%= upload_data.image.url %></dt>
+          </dl>
         </td>
         <td class="list-actions">
           <%= link_to 'Show', upload_data %></br>
@@ -17,4 +22,4 @@
   </table>
 </div>
 <br />
-<%= link_to 'New Upload data', new_upload_data_path %>
+<%= link_to 'New image', new_upload_data_path %>

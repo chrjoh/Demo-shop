@@ -65,6 +65,54 @@ h1 {
   background:   #f8b0f8;
 }
 
+/* Styles for image/index */
+
+#image-list table {
+        border-collapse: collapse;
+}
+
+#image-list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+#image-list .list-image {
+  width:        60px;
+  height:       70px;
+}
+
+#image-list .list-description {
+  width:        60%;
+}
+
+#image-list .list-description dl {
+        margin: 0;
+}
+
+#image-list .list-description dt {
+	color:        #244;
+	font-size:    small;
+}
+
+#image-list .list-description dd {
+        margin: 0;
+}
+
+#image-list .list-actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#image-list .list-line-even {
+  background:   #e0f8f8;
+}
+
+#image-list .list-line-odd {
+  background:   #f8b0f8;
+}
+
+
 /* START:mainlayout */
 body {
   background: #F5D0A9;
