@@ -1,5 +1,10 @@
 Shop::Application.routes.draw do
 
+  match "/images/uploads/*path" => "gridfs#serve"
+  resources :upload_datas
+
+  resources :images
+
   resources :session do
     get 'logout', :on => :collection
   end
@@ -16,5 +21,5 @@ Shop::Application.routes.draw do
     delete 'empty_cart', :on => :collection
   end
 
- root :to => "store#index"
+  root :to => "store#index"
 end

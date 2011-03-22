@@ -1,6 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'mongoid/railtie'
+
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -39,5 +41,11 @@ module Shop
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password_confirmation]
+
+    config.generators do |g|
+      g.orm :mongoid
+      g.template_engine :erb # this could be :haml or whatever
+      g.test_framework :test_unit, :fixture => false # this could be :rpsec or whatever
+    end
   end
 end

@@ -7,6 +7,16 @@ gem 'rails', '3.0.3'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+# start
+# new added for image upload and mongodb
+gem 'bson_ext'
+gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git', :branch => 'master'
+gem 'carrierwave'
+gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git', :branch => 'master'
+gem "mongo_mapper"
+
+# end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
