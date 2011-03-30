@@ -25,6 +25,11 @@ class ProductsController < ApplicationController
   # GET /products/new.xml
   def new
     @product = Product.new
+    images = UploadData.all
+    @image_options =[]
+    images.each do |image|
+      @image_options << [image.title, image.image.url]
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +46,6 @@ class ProductsController < ApplicationController
   # POST /products.xml
   def create
     @product = Product.new(params[:product])
-
     respond_to do |format|
       if @product.save
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }

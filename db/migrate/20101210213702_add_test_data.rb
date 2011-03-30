@@ -8,9 +8,14 @@ class AddTestData < ActiveRecord::Migration
                     :image_url => '/images/Flor-de-Selva-No15_01-Liten.jpg',
                     :price => 102
     )
+    User.delete_all
+    User.create(:name => 'admin',
+                :password => 'admin',
+                :password_confirmation => 'admin')
   end
 
   def self.down
+    User.delete_all
     Product.delete_all
   end
 end

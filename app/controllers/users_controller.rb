@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  before_filter :authenticated
   # GET /users
   # GET /users.xml
   def index
@@ -40,7 +42,6 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    puts params.inspect
     respond_to do |format|
       if @user.save
         flash[:notice] = "User #{@user.name} was created"
@@ -79,6 +80,12 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def authenticated
+    if !session[:user_id]
+      render :controller => 'session', :action => 'login'
     end
   end
 end
