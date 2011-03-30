@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
-
+<% if notice.present? %>
+    <p id="notice"><%= notice %></p>
+<% end %>
 <p>
   <b>Name:</b>
   <%= @user.name %>

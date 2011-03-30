@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticated
+  before_filter :authorize
   # GET /users
   # GET /users.xml
   def index
@@ -83,9 +83,5 @@ class UsersController < ApplicationController
     end
   end
 
-  def authenticated
-    if !session[:user_id]
-      render :controller => 'session', :action => 'login'
-    end
-  end
+  
 end
