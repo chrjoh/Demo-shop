@@ -10,9 +10,9 @@ development:
   <<: *defaults
   database: shop_carrier_wave
 
-test:
-  <<: *defaults
-  database: shop_test
+#test:
+#  <<: *defaults
+#  database: shop_test
 
 # set these environment variables on your prod server
 production:

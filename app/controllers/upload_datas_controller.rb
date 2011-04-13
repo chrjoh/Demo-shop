@@ -1,6 +1,5 @@
 class UploadDatasController < ApplicationController
-  # GET /upload_datas
-  # GET /upload_datas.xml
+
   def index
     @upload_datas = UploadData.all
 
@@ -10,8 +9,6 @@ class UploadDatasController < ApplicationController
     end
   end
 
-  # GET /upload_datas/1
-  # GET /upload_datas/1.xml
   def show
     @upload_data = UploadData.find(params[:id])
 
@@ -21,8 +18,6 @@ class UploadDatasController < ApplicationController
     end
   end
 
-  # GET /upload_datas/new
-  # GET /upload_datas/new.xml
   def new
     @upload_data = UploadData.new
 
@@ -32,13 +27,10 @@ class UploadDatasController < ApplicationController
     end
   end
 
-  # GET /upload_datas/1/edit
   def edit
     @upload_data = UploadData.find(params[:id])
   end
 
-  # POST /upload_datas
-  # POST /upload_datas.xml
   def create
     @upload_data = UploadData.new(params[:upload_data])
 
@@ -53,8 +45,6 @@ class UploadDatasController < ApplicationController
     end
   end
 
-  # PUT /upload_datas/1
-  # PUT /upload_datas/1.xml
   def update
     @upload_data = UploadData.find(params[:id])
 
@@ -69,8 +59,6 @@ class UploadDatasController < ApplicationController
     end
   end
 
-  # DELETE /upload_datas/1
-  # DELETE /upload_datas/1.xml
   def destroy
     @upload_data = UploadData.find(params[:id])
     @upload_data.destroy
