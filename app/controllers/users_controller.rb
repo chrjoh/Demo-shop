@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  #before_filter :authorize
+  before_filter :authorize
 
   def index
     @users = User.find(:all, :order => :name)

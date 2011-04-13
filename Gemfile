@@ -14,6 +14,7 @@ gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git', :branch => 'maste
 gem 'carrierwave'
 gem 'mini_magick', :git => 'git://github.com/probablycorey/mini_magick.git', :branch => 'master'
 gem "mongo_mapper"
+gem 'mocha'
 
 # end
 
