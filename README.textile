@@ -6,3 +6,9 @@ h2. Requirements
 
 * Mongo db up and running
 
+h2. Starting
+
+* run rake db:migrate
+* rails s
+
+User to login with is admin and password admin
