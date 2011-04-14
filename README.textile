@@ -1,0 +1,8 @@
+h1. Demo shop
+
+This is a Ruby on Rails application where I test various features
+
+h2. Requirements
+
+* Mongo db up and running
+

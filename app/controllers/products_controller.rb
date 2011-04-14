@@ -34,6 +34,12 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    images = UploadData.all
+    @image_options =[]
+    images.each do |image|
+      @image_options << [image.title, image.image.url]
+    end
+
   end
 
   def create

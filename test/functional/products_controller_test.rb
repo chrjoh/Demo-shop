@@ -3,6 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:one)
+    UploadData.expects(:all).returns([]).twice
   end
 
   test "should get index" do
@@ -12,10 +13,10 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   # pending need to mock UploadData.all
-  #test "should get new" do
-  #  get :new
-  #  assert_response :success
-  #end
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
 
   test "should create product" do
     assert_difference('Product.count') do
@@ -31,10 +32,10 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
 # pending need to mock UploadData.all
-#  test "should get edit" do
-#    get :edit, :id => @product.to_param
-#    assert_response :success
-#  end
+  test "should get edit" do
+    get :edit, :id => @product.to_param
+    assert_response :success
+  end
 
   test "should update product" do
     put :update, :id => @product.to_param, :product => @product.attributes
