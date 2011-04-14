@@ -7,6 +7,10 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps
     end
+    User.delete_all
+    User.create(:name => 'admin',
+                :password => 'admin',
+                :password_confirmation => 'admin')
   end
 
   def self.down
