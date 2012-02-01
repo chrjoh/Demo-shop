@@ -9,5 +9,5 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [80, 40]
   end
 end
-        
+
 
