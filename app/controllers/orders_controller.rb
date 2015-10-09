@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   skip_before_filter :authorize, :only => [:new, :create]
   before_filter :find_cart
-  
+
   # GET /orders
   # GET /orders.xml
   def index
@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
         format.html # new.html.erb
         format.xml  { render :xml => @order }
       end
-      
+
     end
   end
 
@@ -91,16 +91,16 @@ class OrdersController < ApplicationController
     end
   end
 
-  private  
+  private
   def find_cart
     session[:cart] ||= Cart.new
     @cart = session[:cart]
   end
-  
+
 
   def redirect_to_index(msg = nil)
     flash[:notice] = msg
     redirect_to store_index_path
   end
-  
+
 end

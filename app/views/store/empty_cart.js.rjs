@@ -1,2 +1,2 @@
 page.replace_html("cart", :partial => "empty_cart")
-page[:cart].visual_effect :blind_down 
+page[:cart].visual_effect :blind_down

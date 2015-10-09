@@ -5,11 +5,11 @@
 #   * Henrik Nyh (henrik@nyh.se)
 
 "sv":
-  
-  sumo_errors: 
+
+  sumo_errors:
     unknown: "Ett fel inträffade"
     not_unique_username: "En användare med den e-postadressen existerar redan"
-    
+
   number:
     # Used in number_with_delimiter()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
@@ -106,13 +106,13 @@
     errors:
       # model.errors.full_messages format.
       format: "{{attribute}} {{message}}"
-      
+
       template:
         header:
           one:    "Ett fel förhindrade denna {{model}} från att sparas"
           other:  "{{count}} fel förhindrade denna {{model}} från att sparas"
         body: "Det var problem med följande fält:"
-      
+
       # The values :model, :attribute and :value are always available for interpolation
       # The value :count is available when applicable. Can be used for pluralization.
       messages:
